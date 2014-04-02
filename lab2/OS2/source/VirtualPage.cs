@@ -27,5 +27,11 @@ namespace OS2.source
 				page.ParentPage = this;
 			}
 		}
+		public void ClearPage()
+		{
+			Exist = false;
+			Modified = false;
+			Read = false;
+		}
 	}
 }

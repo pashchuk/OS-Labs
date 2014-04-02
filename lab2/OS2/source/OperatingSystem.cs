@@ -8,5 +8,7 @@ namespace OS2.source
 {
 	class OperatingSystem
 	{
+		private MemoryManagedUnit memoryUnit;
+		public MemoryManagedUnit MemoryUnit { get { return memoryUnit; } }
 	}
 }
