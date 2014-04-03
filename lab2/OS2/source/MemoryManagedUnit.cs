@@ -22,10 +22,10 @@ namespace OS2.source
 		private PhysicPage[] ram;
 		public int VirtualPageCount { get { return virtualMemory.Length; } }
 		public int PhysicPageCount { get { return ram.Length; } }
-		public MemoryManagedUnit(int VirtualMemoryLength, int PhysicMemoryLength)
+		public MemoryManagedUnit()
 		{
-			virtualMemory = new VirtualPage[VirtualMemoryLength];
-			ram = new PhysicPage[PhysicMemoryLength];
+			virtualMemory = new VirtualPage[AppSetting.Default.VirtualMemory];
+			ram = new PhysicPage[AppSetting.Default.PhysicMemory];
 			Init();
 		}
 		private void Init()
@@ -48,9 +48,9 @@ namespace OS2.source
 		}
 		public PhysicPage ReadDataById(int id)
 		{
-			if (virtualMemory[id].Exist)
-				return virtualMemory[id].PageMemory;
-			else return GetPhysicPage();
+			if (!virtualMemory[id].Exist)
+				virtualMemory[id].PageMemory = GetPhysicPage();
+			return virtualMemory[id].PageMemory;
 		}
 		private PhysicPage GetPhysicPage()
 		{
