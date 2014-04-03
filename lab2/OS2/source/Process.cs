@@ -12,11 +12,11 @@ namespace OS2.source
 		private int[] memory;
 		public int ExpirationTime { get; set; }
 		public int PageCount { get { return memory.Length; } }
-		public void Init(int pageCount)
+		public void Start()
 		{
-			memory = new int[pageCount];
-			for (int i = 0; i < pageCount; i++)
-				memory[i] = unit.GetEmpthyPage();
+			//Random rnd = new Random();
+			//int pageCount = rnd.Next(1, 10);
+			memory = new int[AppSetting.Default.VirtualPageCountMax];
 		}
 		public void Kill()
 		{
