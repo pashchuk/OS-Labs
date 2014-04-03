@@ -57,15 +57,9 @@ namespace OS2.source
 			while(cursor<PhysicPageCount)
 			{
 				if (ram[cursor].ParentPage == null)
-				{
 					return ram[cursor++];
-					break;
-				}
 				else if (!ram[cursor].ParentPage.Modified)
-				{
 					return ram[cursor++];
-					break;
-				}
 				else ram[cursor++].ParentPage.Modified = false;
 			}
 			return null;

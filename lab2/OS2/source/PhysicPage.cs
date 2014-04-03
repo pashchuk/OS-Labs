@@ -20,5 +20,9 @@ namespace OS2.source
 		{
 			this.index = Index;
 		}
+		public bool GetData()
+		{
+			return parentPage == null ? false : true;
+		}
 	}
 }
