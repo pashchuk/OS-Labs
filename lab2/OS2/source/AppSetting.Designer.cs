@@ -58,5 +58,53 @@ namespace OS2.source {
                 this["PhysicMemory"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int GenerateProcessTimeLimit {
+            get {
+                return ((int)(this["GenerateProcessTimeLimit"]));
+            }
+            set {
+                this["GenerateProcessTimeLimit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ReadDataTimeLimit {
+            get {
+                return ((int)(this["ReadDataTimeLimit"]));
+            }
+            set {
+                this["ReadDataTimeLimit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ProcessExpirationTimeLimit {
+            get {
+                return ((int)(this["ProcessExpirationTimeLimit"]));
+            }
+            set {
+                this["ProcessExpirationTimeLimit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SimulationTimeLimit {
+            get {
+                return ((int)(this["SimulationTimeLimit"]));
+            }
+            set {
+                this["SimulationTimeLimit"] = value;
+            }
+        }
     }
 }

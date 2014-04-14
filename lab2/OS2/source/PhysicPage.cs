@@ -15,7 +15,7 @@ namespace OS2.source
 			get { return parentPage; }
 			set { parentPage = value; }
 		}
-		public int Index { get; }
+		public int Index { get; set; }
 		public PhysicPage(int Index)
 		{
 			this.index = Index;

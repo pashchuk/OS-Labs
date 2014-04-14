@@ -8,12 +8,17 @@ namespace OS2.source
 {
 	class Process
 	{
-		private MemoryManagedUnit unit;
+		public int PID { get; set; }
+		public readonly MemoryManagedUnit unit;
 		private int[] memory;
-		private delegate void Working(Process proc);
-		public event Working Work;
+		public delegate void Working(Process proc);
+		public  Working Work;
 		public int ExpirationTime { get; set; }
 		public int PageCount { get { return memory.Length; } }
+		public Process(MemoryManagedUnit unit)
+		{
+			this.unit = unit;
+		}
 		public void Start()
 		{
 			Random rnd = new Random();
