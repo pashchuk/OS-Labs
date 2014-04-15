@@ -26,18 +26,6 @@ namespace OS2.source {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int VirtualPageCountMax {
-            get {
-                return ((int)(this["VirtualPageCountMax"]));
-            }
-            set {
-                this["VirtualPageCountMax"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int VirtualMemory {
             get {
                 return ((int)(this["VirtualMemory"]));
@@ -104,6 +92,18 @@ namespace OS2.source {
             }
             set {
                 this["SimulationTimeLimit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int WorkCollection {
+            get {
+                return ((int)(this["WorkCollection"]));
+            }
+            set {
+                this["WorkCollection"] = value;
             }
         }
     }
