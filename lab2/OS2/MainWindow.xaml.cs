@@ -27,6 +27,12 @@ namespace OS2
 		{
 			InitializeComponent();
 			this.TextBox1.Text = AppSetting.Default.VirtualPageCountMax.ToString();
+			this.TextBox2.Text = AppSetting.Default.VirtualMemory.ToString();
+			this.TextBox3.Text = AppSetting.Default.PhysicMemory.ToString();
+			this.TextBox4.Text = AppSetting.Default.GenerateProcessTimeLimit.ToString();
+			this.TextBox5.Text = AppSetting.Default.ReadDataTimeLimit.ToString();
+			this.TextBox6.Text = AppSetting.Default.ProcessExpirationTimeLimit.ToString();
+			this.TextBox7.Text = AppSetting.Default.SimulationTimeLimit.ToString();
 		}
 
 		private void StartButton_Click(object sender, RoutedEventArgs e)
@@ -38,8 +44,10 @@ namespace OS2
 			AppSetting.Default.ReadDataTimeLimit = int.Parse(this.TextBox5.Text);
 			AppSetting.Default.ProcessExpirationTimeLimit = int.Parse(this.TextBox6.Text);
 			AppSetting.Default.SimulationTimeLimit = int.Parse(this.TextBox7.Text);
+			AppSetting.Default.Save();
 			source.OperatingSystem os = new source.OperatingSystem();
-			
+			Log logwindow = new Log();
+			logwindow.Show();
 		}
 
 		private void EndButton_Click(object sender, RoutedEventArgs e)
@@ -51,17 +59,7 @@ namespace OS2
 			AppSetting.Default.ReadDataTimeLimit = int.Parse(this.TextBox5.Text);
 			AppSetting.Default.ProcessExpirationTimeLimit = int.Parse(this.TextBox6.Text);
 			AppSetting.Default.SimulationTimeLimit = int.Parse(this.TextBox7.Text);
-		}
-
-		struct Setting
-		{
-			public int VirtualPageCountMax,
-				VirtualMemory,
-				PhysicMemory,
-				GenerateProcessTimeLimit,
-				ReadDataTimeLimit,
-				ProcessExpirationTimeLimit,
-				SimulationTimeLimit;
+			AppSetting.Default.Save();
 		}
 	}
 }

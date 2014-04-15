@@ -8,7 +8,8 @@ namespace OS2.source
 {
 	class MemoryManagedUnit
 	{
-		private int cursor
+		private int cursor;
+		public int Cursor
 		{
 			get { return cursor; }
 			set
@@ -54,13 +55,13 @@ namespace OS2.source
 		}
 		private PhysicPage GetPhysicPage()
 		{
-			while(cursor<PhysicPageCount)
+			while(Cursor<PhysicPageCount)
 			{
-				if (ram[cursor].ParentPage == null)
-					return ram[cursor++];
-				else if (!ram[cursor].ParentPage.Modified)
-					return ram[cursor++];
-				else ram[cursor++].ParentPage.Modified = false;
+				if (ram[Cursor].ParentPage == null)
+					return ram[Cursor++];
+				else if (!ram[Cursor].ParentPage.Modified)
+					return ram[Cursor++];
+				else ram[Cursor++].ParentPage.Modified = false;
 			}
 			return null;
 		}
