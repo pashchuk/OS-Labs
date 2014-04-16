@@ -20,7 +20,6 @@ namespace OS2.source
 			memoryUnit= new MemoryManagedUnit();
 			
 		}
-
 		public void BeginSimulation()
 		{
 			int currTime = 0,
@@ -35,18 +34,9 @@ namespace OS2.source
 					Process process = new Process(memoryUnit) {PID = pidCounter++};
 					process.ExpirationTime = rnd.Next(1, AppSetting.Default.ProcessExpirationTimeLimit);
 					proc.Add(process);
-					process.Work += WorkFunc;
 					tempTime = currTime;
 				}
-				
-
 			}
-		}
-		public void WorkFunc(Process proc)
-		{
-			proc.ExpirationTime = rnd.Next(1, AppSetting.Default.ProcessExpirationTimeLimit);
-			
-		}
-		
+		}	
 	}
 }

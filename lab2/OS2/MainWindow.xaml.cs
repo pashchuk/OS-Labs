@@ -33,6 +33,7 @@ namespace OS2
 			this.TextBox5.Text = AppSetting.Default.ReadDataTimeLimit.ToString();
 			this.TextBox6.Text = AppSetting.Default.ProcessExpirationTimeLimit.ToString();
 			this.TextBox7.Text = AppSetting.Default.SimulationTimeLimit.ToString();
+			this.TextBox8.Text = AppSetting.Default.VirtualPagePerProcess.ToString();
 		}
 
 		private void StartButton_Click(object sender, RoutedEventArgs e)
@@ -44,10 +45,13 @@ namespace OS2
 			AppSetting.Default.ReadDataTimeLimit = int.Parse(this.TextBox5.Text);
 			AppSetting.Default.ProcessExpirationTimeLimit = int.Parse(this.TextBox6.Text);
 			AppSetting.Default.SimulationTimeLimit = int.Parse(this.TextBox7.Text);
+			AppSetting.Default.VirtualPagePerProcess = int.Parse((this.TextBox8.Text));
 			AppSetting.Default.Save();
 			source.OperatingSystem os = new source.OperatingSystem();
 			Log logwindow = new Log();
+			AppSetting.Default.log = logwindow.TextBox;
 			logwindow.Show();
+			os.BeginSimulation();
 		}
 
 		private void EndButton_Click(object sender, RoutedEventArgs e)
@@ -59,6 +63,7 @@ namespace OS2
 			AppSetting.Default.ReadDataTimeLimit = int.Parse(this.TextBox5.Text);
 			AppSetting.Default.ProcessExpirationTimeLimit = int.Parse(this.TextBox6.Text);
 			AppSetting.Default.SimulationTimeLimit = int.Parse(this.TextBox7.Text);
+			AppSetting.Default.VirtualPagePerProcess = int.Parse((this.TextBox8.Text));
 			AppSetting.Default.Save();
 		}
 	}

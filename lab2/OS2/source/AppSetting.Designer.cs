@@ -106,5 +106,28 @@ namespace OS2.source {
                 this["WorkCollection"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int VirtualPagePerProcess {
+            get {
+                return ((int)(this["VirtualPagePerProcess"]));
+            }
+            set {
+                this["VirtualPagePerProcess"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Windows.Controls.TextBox log {
+            get {
+                return ((global::System.Windows.Controls.TextBox)(this["log"]));
+            }
+            set {
+                this["log"] = value;
+            }
+        }
     }
 }
