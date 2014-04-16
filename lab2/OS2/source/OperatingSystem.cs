@@ -18,33 +18,34 @@ namespace OS2.source
 		{
 			proc = new List<Process>();
 			memoryUnit= new MemoryManagedUnit();
-			int currTime = 0, generateTime = rnd.Next(1, AppSetting.Default.GenerateProcessTimeLimit),
-				tempTime = 0, pidCounter = 1;
+			
+		}
+
+		public void BeginSimulation()
+		{
+			int currTime = 0,
+				generateProcesTime = rnd.Next(1, AppSetting.Default.GenerateProcessTimeLimit),
+				tempTime = 0, pidCounter = 1, quantumTime = 50,
+				readDataTime = rnd.Next(1, AppSetting.Default.ReadDataTimeLimit);
+			Process currentProcess;
 			while (++currTime < AppSetting.Default.SimulationTimeLimit)
 			{
-				if (currTime - tempTime == generateTime)
+				if (currTime - tempTime == generateProcesTime)
 				{
-					Process process = new Process(memoryUnit) { PID = pidCounter++ };
+					Process process = new Process(memoryUnit) {PID = pidCounter++};
+					process.ExpirationTime = rnd.Next(1, AppSetting.Default.ProcessExpirationTimeLimit);
 					proc.Add(process);
 					process.Work += WorkFunc;
-					process.Start();
 					tempTime = currTime;
 				}
+				
+
 			}
 		}
 		public void WorkFunc(Process proc)
 		{
 			proc.ExpirationTime = rnd.Next(1, AppSetting.Default.ProcessExpirationTimeLimit);
-			int currTime = 0, workTime = rnd.Next(1, AppSetting.Default.ReadDataTimeLimit), tempTime = 0;
-			while (++currTime < proc.ExpirationTime)
-			{
-				if(currTime-tempTime==workTime)
-				{
-					proc.ReadData();
-					tempTime = currTime;
-					workTime = rnd.Next(1, AppSetting.Default.ReadDataTimeLimit);
-				}
-			}
+			
 		}
 		
 	}

@@ -26,7 +26,7 @@ namespace OS2
 		public MainWindow()
 		{
 			InitializeComponent();
-			this.TextBox1.Text = AppSetting.Default.VirtualPageCountMax.ToString();
+			this.TextBox1.Text = AppSetting.Default.WorkCollection.ToString();
 			this.TextBox2.Text = AppSetting.Default.VirtualMemory.ToString();
 			this.TextBox3.Text = AppSetting.Default.PhysicMemory.ToString();
 			this.TextBox4.Text = AppSetting.Default.GenerateProcessTimeLimit.ToString();
@@ -37,7 +37,7 @@ namespace OS2
 
 		private void StartButton_Click(object sender, RoutedEventArgs e)
 		{
-			AppSetting.Default.VirtualPageCountMax = int.Parse(this.TextBox1.Text);
+			AppSetting.Default.WorkCollection = int.Parse(this.TextBox1.Text);
 			AppSetting.Default.VirtualMemory = int.Parse(this.TextBox2.Text);
 			AppSetting.Default.PhysicMemory = int.Parse(this.TextBox3.Text);
 			AppSetting.Default.GenerateProcessTimeLimit = int.Parse(this.TextBox4.Text);
@@ -52,7 +52,7 @@ namespace OS2
 
 		private void EndButton_Click(object sender, RoutedEventArgs e)
 		{
-			AppSetting.Default.VirtualPageCountMax = int.Parse(this.TextBox1.Text);
+			AppSetting.Default.WorkCollection = int.Parse(this.TextBox1.Text);
 			AppSetting.Default.VirtualMemory = int.Parse(this.TextBox2.Text);
 			AppSetting.Default.PhysicMemory = int.Parse(this.TextBox3.Text);
 			AppSetting.Default.GenerateProcessTimeLimit = int.Parse(this.TextBox4.Text);
