@@ -17,6 +17,7 @@ namespace OS2.source
 		{
 			get
 			{
+				Modified = true;
 				Read = true;
 				return page;
 			}

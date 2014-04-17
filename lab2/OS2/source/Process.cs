@@ -9,6 +9,16 @@ namespace OS2.source
 	class Process
 	{
 		#region Public Fields
+
+		public int ElapsedTime
+		{
+			get { return elapsedTime; }
+			set
+			{
+				if(value>=ExpirationTime)
+					Kill();
+			}
+		}
 		public int PID { get; set; }
 		public readonly MemoryManagedUnit unit;
 		public delegate void Working(Process proc);
@@ -20,34 +30,19 @@ namespace OS2.source
 		#region Private Fields
 		private readonly int[] memory;
 		private int[] workCollection;
-		private int elapsedTime = 0;
-		private readonly Random rnd = new Random();
+		private int elapsedTime;
+		private readonly Random rnd;
 		#endregion
 		
 		
 		public Process(MemoryManagedUnit unit)
 		{
+			rnd = new Random();
 			this.unit = unit;
 			int pageCount = rnd.Next(1, AppSetting.Default.VirtualPagePerProcess);
-			memory = new int[pageCount];
-		}
-
-		public void Run()
-		{
-			int currTime = elapsedTime, workTime = rnd.Next(1, AppSetting.Default.ReadDataTimeLimit), tempTime = elapsedTime;
-			while (++currTime%100 == 0)
-			{
-				if(currTime%50==0)
-					ChangeWorkCollection();
-				if(currTime==ExpirationTime)
-					Kill();
-				if (currTime - tempTime == workTime)
-				{
-					ReadData();
-					tempTime = currTime;
-					workTime = rnd.Next(1, AppSetting.Default.ReadDataTimeLimit);
-				}
-			}
+			memory = unit.GetAdressMemory(pageCount);
+			elapsedTime = 0;
+			ChangeWorkCollection();
 		}
 		public void Kill()
 		{
@@ -55,20 +50,21 @@ namespace OS2.source
 				unit.GetPageById(i).ClearPage();
 		}
 
-		private void ChangeWorkCollection()
+		public void ChangeWorkCollection()
 		{
 			workCollection = new int[rnd.Next(1, AppSetting.Default.WorkCollection)];
 			for (int i = 0; i < workCollection.Length; i++)
-				workCollection[i] = memory[rnd.Next(1, memory.Length - 1)];
+				workCollection[i] = memory[rnd.Next(1, memory.Length) - 1];
 		}
-		private void ReadData()
+		public void ReadData()
 		{
 			int index = rnd.Next(1, 10);
+
 			if (index <= 9)
 				unit.ReadDataById(workCollection[rnd.Next(1, workCollection.Length) - 1]).GetData();
 			else
 				unit.ReadDataById(memory[rnd.Next(1, memory.Length) - 1]).GetData();
-			AppSetting.Default.log.Text += String.Format("Data was readed by {0} process", PID);
+			AppSetting.Default.log.Text += String.Format("Data was readed by {0} process\r\n", PID);
 		}
 	}
 }

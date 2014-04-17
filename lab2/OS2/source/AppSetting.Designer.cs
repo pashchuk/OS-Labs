@@ -50,18 +50,6 @@ namespace OS2.source {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int GenerateProcessTimeLimit {
-            get {
-                return ((int)(this["GenerateProcessTimeLimit"]));
-            }
-            set {
-                this["GenerateProcessTimeLimit"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int ReadDataTimeLimit {
             get {
                 return ((int)(this["ReadDataTimeLimit"]));
@@ -127,6 +115,42 @@ namespace OS2.source {
             }
             set {
                 this["log"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int GenerateProcessTimeLimit {
+            get {
+                return ((int)(this["GenerateProcessTimeLimit"]));
+            }
+            set {
+                this["GenerateProcessTimeLimit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long PageFoldCounter {
+            get {
+                return ((long)(this["PageFoldCounter"]));
+            }
+            set {
+                this["PageFoldCounter"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long AllPageFold {
+            get {
+                return ((long)(this["AllPageFold"]));
+            }
+            set {
+                this["AllPageFold"] = value;
             }
         }
     }

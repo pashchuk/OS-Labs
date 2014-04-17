@@ -46,6 +46,8 @@ namespace OS2
 			AppSetting.Default.ProcessExpirationTimeLimit = int.Parse(this.TextBox6.Text);
 			AppSetting.Default.SimulationTimeLimit = int.Parse(this.TextBox7.Text);
 			AppSetting.Default.VirtualPagePerProcess = int.Parse((this.TextBox8.Text));
+			AppSetting.Default.AllPageFold = 0;
+			AppSetting.Default.PageFoldCounter = 0;
 			AppSetting.Default.Save();
 			source.OperatingSystem os = new source.OperatingSystem();
 			Log logwindow = new Log();
@@ -64,7 +66,10 @@ namespace OS2
 			AppSetting.Default.ProcessExpirationTimeLimit = int.Parse(this.TextBox6.Text);
 			AppSetting.Default.SimulationTimeLimit = int.Parse(this.TextBox7.Text);
 			AppSetting.Default.VirtualPagePerProcess = int.Parse((this.TextBox8.Text));
+			AppSetting.Default.AllPageFold = 0;
+			AppSetting.Default.PageFoldCounter = 0;
 			AppSetting.Default.Save();
+			this.Close();
 		}
 	}
 }

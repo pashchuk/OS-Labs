@@ -22,6 +22,7 @@ namespace OS2.source
 		}
 		public bool GetData()
 		{
+			parentPage.Modified = true;
 			return parentPage == null ? false : true;
 		}
 	}
