@@ -13,5 +13,9 @@
 *.a
 
 *.*
+*.csproj
+*.sln
+*.cache
 !*.cs
 !*.xaml
+lab3/OS3/obj/*.*
